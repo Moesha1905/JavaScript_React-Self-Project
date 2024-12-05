@@ -74,7 +74,6 @@ export class UserForm extends Component {
         
         return (
         <div>
-            
         </div>
         )
     }
