@@ -16,6 +16,12 @@ export class UserForm extends Component {
         bio: ''
     }
 
+    addUserData = (userData) => {
+        this.setState(prevState => ({
+            allUserData: [...prevState.allUserData, userData]
+        }));
+    };
+
     // Proceed to next step
     nextStep = () => {
         const { step } = this.state;
