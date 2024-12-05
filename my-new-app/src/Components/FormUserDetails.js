@@ -15,7 +15,10 @@ export class FormUserDetails extends Component {
     return (
       <MuiThemeProvider>
         <React.Fragment>
-            <AppBar title="Enter User Details" />
+            <AppBar 
+                title="Enter User Details" 
+                style={{ backgroundColor: '#EFA94A' }}
+            />
             <TextField
                 hintText="Enter Your First Name"
                 floatingLabelText="First Name"
@@ -41,6 +44,8 @@ export class FormUserDetails extends Component {
                 label="Continue"
                 primary={true}
                 style={styles.button} 
+                backgroundColor="#F5D033"
+                labelColor="#F5D033"
                 onClick={this.continue}
             />
         </React.Fragment>
