@@ -14,13 +14,8 @@ export class UserForm extends Component {
         occupation: '',
         city: '',
         bio: '',
-        allUserData: []
-    }
-
-    addUserData = (userData) => {
-        this.setState(prevState => ({
-            allUserData: [...prevState.allUserData, userData]
-        }));
+        allUserData: [],
+        isFirstClick: true
     };
 
     // Proceed to next step
@@ -29,7 +24,7 @@ export class UserForm extends Component {
         this.setState({
             step: step + 1
         });
-    }
+    };
 
     // Go back to prev step
     prevStep = () => {
@@ -37,12 +32,20 @@ export class UserForm extends Component {
         this.setState({
             step: step - 1
         });
-    }
+    };
 
     // Handle fields change
     handleChange = input => e => {
         this.setState({[input]: e.target.value});
-    }
+    };
+
+    addUserData = () => {
+        const { firstName, lastName, email, occupation, city, bio } = this.state;
+        const newUser = { firstName, lastName, email, occupation, city, bio };
+        this.setState({
+            allUserData: [...allUserData, newUser]
+        });
+    };
 
     render() {
         const { step } = this.state;
@@ -72,7 +75,9 @@ export class UserForm extends Component {
                     <Confirm
                         nextStep={this.nextStep}
                         addUserData={this.addUserData}
+                        isFirstClick={this.state.isFirstClick}
                         allUserData={this.state.allUserData}
+                        handleFirstClick={() => this.setState({isFirstClick: false})}
                         prevStep={this.prevStep}
                         values={values}
                     />

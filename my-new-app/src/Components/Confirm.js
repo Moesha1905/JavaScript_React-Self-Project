@@ -7,14 +7,25 @@ import * as XLSX from 'xlsx';
 
 export class Confirm extends Component {
     continue = e => {
-        e.preventDefault();
-        const { values, addUserData } = this.props;
-        addUserData(values);
-        const worksheet = XLSX.utils.json_to_sheet(this.props.allUserData);
+        const { addUserData, isFirstClick, handleFirstClick }  = this.props;
+        if (typeof addUserData === "function") {
+            addUserData();
+        }
+        
+        if (isFirstClick) {
+            this.saveToExcel();
+            handleFirstClick();
+        }
+
+        this.props.nextStep();
+    };
+
+    saveToExcel = () => {
+        const { allUserData } = this.props;
+        const worksheet = XLSX.utils.json_to_sheet(allUserData);
         const workbook = XLSX.utils.book_new();
         XLSX.utils.book_append_sheet(workbook, worksheet, "User_Data");
-        XLSX.writeFile(workbook, "User_Data.xlsx");
-        this.props.nextStep();      
+        XLSX.writeFile(workbook, "User_Data.xlsx")
     };
 
     back = e => {
