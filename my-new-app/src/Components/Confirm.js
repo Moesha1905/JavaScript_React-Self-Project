@@ -22,7 +22,10 @@ export class Confirm extends Component {
     return (
       <MuiThemeProvider>
         <React.Fragment>
-            <AppBar title="Confirm User Data" />
+            <AppBar 
+                title="Confirm User Data" 
+                style={{ backgroundColor: '#0047AB' }}
+            />
             <List>
                 <ListItem
                     primaryText="First Name"
@@ -52,14 +55,16 @@ export class Confirm extends Component {
             <br/>
             <RaisedButton
                 label="Confirm & Continue"
-                primary={true}
                 style={styles.button} 
+                backgroundColor="#0047AB"
+                labelColor="#ffffff"
                 onClick={this.continue}
             />
             <RaisedButton
                 label="Back"
-                primary={false}
                 style={styles.button} 
+                backgroundColor="#7393B3"
+                labelColor="#ffffff"
                 onClick={this.back}
             />
         </React.Fragment>

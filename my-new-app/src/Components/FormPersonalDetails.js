@@ -24,7 +24,7 @@ export class FormPersonalDetails extends Component {
         <React.Fragment>
             <AppBar 
                 title="Enter Personal Details" 
-                style={{ backgroundColor: '#EFA94A' }}
+                style={{ backgroundColor: '#0047AB' }}
             />
             <TextField
                 hintText="Enter Your Occupation"
@@ -49,14 +49,16 @@ export class FormPersonalDetails extends Component {
             <br/>
             <RaisedButton
                 label="Continue"
-                primary={true}
                 style={styles.button} 
+                backgroundColor="#0047AB"
+                labelColor="#ffffff" 
                 onClick={this.continue}
             />
             <RaisedButton
                 label="Back"
-                primary={false}
                 style={styles.button} 
+                backgroundColor="#7393B3"
+                labelColor="#ffffff" 
                 onClick={this.back}
             />
         </React.Fragment>

@@ -17,7 +17,7 @@ export class FormUserDetails extends Component {
         <React.Fragment>
             <AppBar 
                 title="Enter User Details" 
-                style={{ backgroundColor: '#EFA94A' }}
+                style={{ backgroundColor: '#0047AB' }}
             />
             <TextField
                 hintText="Enter Your First Name"
@@ -42,10 +42,9 @@ export class FormUserDetails extends Component {
             <br/>
             <RaisedButton
                 label="Continue"
-                primary={true}
                 style={styles.button} 
-                backgroundColor="#F5D033"
-                labelColor="#F5D033"
+                backgroundColor="#0047AB"
+                labelColor="#ffffff"
                 onClick={this.continue}
             />
         </React.Fragment>
