@@ -4,7 +4,7 @@ import AppBar from 'material-ui/AppBar';
 import {List, ListItem} from 'material-ui/List';
 import RaisedButton from 'material-ui/RaisedButton';
 
-export class Continue extends Component {
+export class Confirm extends Component {
     continue = e => {
         e.preventDefault();
         // process form //
@@ -16,7 +16,7 @@ export class Continue extends Component {
         e.preventDefault();
         this.props.prevStep();
     };
-    
+
   render() {
     const { values: { firstName, lastName, email, occupation, city, bio} } = this.props;
     return (
@@ -74,4 +74,4 @@ const styles = {
     }
 }
 
-export default FormUserDetails
+export default Confirm;
