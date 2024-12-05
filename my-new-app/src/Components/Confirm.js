@@ -11,6 +11,12 @@ export class Continue extends Component {
         this.props.nextStep();
 
     };
+
+    back = e => {
+        e.preventDefault();
+        this.props.prevStep();
+    };
+    
   render() {
     const { values: { firstName, lastName, email, occupation, city, bio} } = this.props;
     return (
@@ -44,25 +50,17 @@ export class Continue extends Component {
                 />
             </List>
             <br/>
-            <TextField
-                hintText="Enter Your Last Name"
-                floatingLabelText="Last Name"
-                onChange={handleChange('lastName')}
-                defaultValue={values.lastName}
-            />
-            <br/>
-            <TextField
-                hintText="Enter Your Email"
-                floatingLabelText="Email"
-                onChange={handleChange('email')}
-                defaultValue={values.email}
-            />
-            <br/>
             <RaisedButton
-                label="Continue"
+                label="Confirm & Continue"
                 primary={true}
                 style={styles.button} 
                 onClick={this.continue}
+            />
+            <RaisedButton
+                label="Back"
+                primary={false}
+                style={styles.button} 
+                onClick={this.back}
             />
         </React.Fragment>
       </MuiThemeProvider>
