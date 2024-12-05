@@ -71,6 +71,8 @@ export class UserForm extends Component {
                 return (
                     <Confirm
                         nextStep={this.nextStep}
+                        addUserData={this.addUserData}
+                        allUserData={this.state.allUserData}
                         prevStep={this.prevStep}
                         values={values}
                     />
