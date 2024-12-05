@@ -50,6 +50,12 @@ export class FormPersonalDetails extends Component {
                 style={styles.button} 
                 onClick={this.continue}
             />
+            <RaisedButton
+                label="Back"
+                primary={false}
+                style={styles.button} 
+                onClick={this.back}
+            />
         </React.Fragment>
       </MuiThemeProvider>
     )
