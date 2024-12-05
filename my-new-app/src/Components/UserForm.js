@@ -13,9 +13,7 @@ export class UserForm extends Component {
         email: '',
         occupation: '',
         city: '',
-        bio: '',
-        allUserData: [],
-        isFirstClick: true
+        bio: ''
     };
 
     // Proceed to next step
@@ -37,14 +35,6 @@ export class UserForm extends Component {
     // Handle fields change
     handleChange = input => e => {
         this.setState({[input]: e.target.value});
-    };
-
-    addUserData = () => {
-        const { firstName, lastName, email, occupation, city, bio } = this.state;
-        const newUser = { firstName, lastName, email, occupation, city, bio };
-        this.setState({
-            allUserData: [...allUserData, newUser]
-        });
     };
 
     render() {
@@ -74,10 +64,6 @@ export class UserForm extends Component {
                 return (
                     <Confirm
                         nextStep={this.nextStep}
-                        addUserData={this.addUserData}
-                        isFirstClick={this.state.isFirstClick}
-                        allUserData={this.state.allUserData}
-                        handleFirstClick={() => this.setState({isFirstClick: false})}
                         prevStep={this.prevStep}
                         values={values}
                     />
