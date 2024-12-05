@@ -3,13 +3,17 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import AppBar from 'material-ui/AppBar';
 import {List, ListItem} from 'material-ui/List';
 import RaisedButton from 'material-ui/RaisedButton';
+import * as XLSX from 'xlsx';
 
 export class Confirm extends Component {
     continue = e => {
         e.preventDefault();
-        // process form //
+        const { values } = this.props;
+        const worksheet = XLSX.utils.json_to_sheet([values]);
+        const workbook = XLSX.utils.book_new();
+        XLSX.utils.book_append_sheet(workbook, worksheet, "User_Data");
+        XLSX.writeFile(workbook, "User_Data.xlsx");
         this.props.nextStep();
-
     };
 
     back = e => {
