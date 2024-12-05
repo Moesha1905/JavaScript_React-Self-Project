@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import AppBar from 'material-ui/AppBar';
+import { RaisedButton } from 'material-ui';
 
 export class Success extends Component {
     continue = e => {
@@ -16,6 +17,7 @@ export class Success extends Component {
     };
 
   render() {
+    const { restartForm } = this.props;
     return (
       <MuiThemeProvider>
         <React.Fragment>
@@ -25,9 +27,22 @@ export class Success extends Component {
             />
             <h1>Thank You For Your Submission</h1>
             <p>You will get an email with further instructions</p>
+            <RaisedButton 
+              label="Redo Form"
+              style={styles.button} 
+              backgroundColor="#0047AB"
+              labelColor="#ffffff"
+              onClick={restartForm}
+            />
         </React.Fragment>
       </MuiThemeProvider>
-    )
+    );
+  }
+}
+
+const styles = {
+  button: {
+      margin: 15
   }
 }
 
