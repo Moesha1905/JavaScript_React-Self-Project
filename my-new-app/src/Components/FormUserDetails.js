@@ -11,10 +11,18 @@ export class FormUserDetails extends Component {
 
     }
   render() {
+    const { values, handleChange } = this.props;
     return (
-      <div>
-        
-      </div>
+      <MuiThemeProvider>
+        <React.Fragment>
+            <AppBar title="Enter User Details" />
+            <TextField
+                hintText="Enter Your First Name"
+                floatingLabelText="First Name"
+                onChange={handleChange('firstName')}
+            />
+        </React.Fragment>
+      </MuiThemeProvider>
     )
   }
 }
