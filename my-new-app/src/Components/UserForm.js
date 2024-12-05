@@ -13,7 +13,8 @@ export class UserForm extends Component {
         email: '',
         occupation: '',
         city: '',
-        bio: ''
+        bio: '',
+        allUserData: []
     }
 
     addUserData = (userData) => {
