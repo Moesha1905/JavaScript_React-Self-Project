@@ -4,7 +4,6 @@ import FormPersonalDetails from './FormPersonalDetails';
 import Confirm from './Confirm';
 import Success from './Success';
 
-
 export class UserForm extends Component {
     state = {
         step: 1,
@@ -13,7 +12,8 @@ export class UserForm extends Component {
         email: '',
         occupation: '',
         city: '',
-        bio: ''
+        bio: '',
+        country: ''
     };
 
     // Proceed to next step
@@ -41,7 +41,8 @@ export class UserForm extends Component {
             email: '',
             occupation: '',
             city: '',
-            bio: ''
+            bio: '',
+            country: ''
         });
     }
 
@@ -52,8 +53,8 @@ export class UserForm extends Component {
 
     render() {
         const { step } = this.state;
-        const { firstName, lastName, email, occupation, city, bio } = this.state;
-        const values = {firstName, lastName, email, occupation, city, bio }
+        const { firstName, lastName, email, occupation, city, country, bio } = this.state;
+        const values = {firstName, lastName, email, occupation, city, country, bio }
         
         switch(step) {
             case 1:
@@ -73,6 +74,7 @@ export class UserForm extends Component {
                         values={values}
                     />
                 );
+
             case 3:
                 return (
                     <Confirm
@@ -81,10 +83,10 @@ export class UserForm extends Component {
                         values={values}
                     />
                 );
+                
             case 4:
                 return <Success restartForm={this.restartForm} />;
         }
-        
         return (
         <div>
         </div>

@@ -5,10 +5,10 @@ import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
 
 export class FormPersonalDetails extends Component {
+  
     continue = e => {
         e.preventDefault();
         this.props.nextStep();
-
     };
 
     back = e => {
@@ -19,6 +19,7 @@ export class FormPersonalDetails extends Component {
 
   render() {
     const { values, handleChange } = this.props;
+
     return (
       <MuiThemeProvider>
         <React.Fragment>
