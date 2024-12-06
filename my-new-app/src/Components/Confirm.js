@@ -13,7 +13,8 @@ export class Confirm extends Component {
         XLSX.utils.book_append_sheet(workbook, worksheet, "User_Data");
         XLSX.writeFile(workbook, "User_Data.xlsx");
         this.props.nextStep();
-    };
+        };
+    
 
     back = e => {
         e.preventDefault();
