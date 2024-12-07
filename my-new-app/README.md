@@ -1,70 +1,43 @@
-# Getting Started with Create React App
+# Multi-Step Form Application
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Overview
+A React-based multi-step form application designed to collect user details, including basic and personal information. The form features a confirmation page to review the entered details and a success page, where the collected data can be exported as an Excel file.
 
-## Available Scripts
+## Features
+- **User-Friendly Navigation**: Navigate between form sections with buttons styled using Material-UI.
+- **Form State Management**: Efficient state management using React, allowing seamless interaction between components.
+- **Data Export**: Save the collected user data as an Excel file on the success page.
+- **Restart Functionality**: Option to restart the form and submit new information.
 
-In the project directory, you can run:
+## Form Sections
+1. **Usual Details**:
+   - Collects first name, last name, and email.
+2. **Personal Details**:
+   - Collects occupation, city of residence, and a short biodata.
+3. **Confirm**:
+   - Displays all entered details for the user to review before submission.
+4. **Success**:
+   - Shows a completion message and allows data export as an Excel file.
 
-### `npm start`
+## Technologies Used
+- **React**: For building the user interface and managing state.
+- **Material-UI**: For pre-styled components like buttons, text fields, and app bars.
+- **XLSX Library**: To enable data export to an Excel file.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## React Components
+1. **UserForm**:
+   - Parent component managing the form state and navigation between sections.
+2. **FormUserDetails**:
+   - Handles the collection of basic user details (name, email).
+3. **FormPersonalDetails**:
+   - Handles the collection of personal details (occupation, city, biodata).
+4. **Confirm**:
+   - Displays the information collected for user verification.
+5. **Success**:
+   - Final component, displays a success message and allows data export.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Getting Started
+### Prerequisites
+- Node.js installed on your system
+- REACT imported
+- MATERIAL UI library imported

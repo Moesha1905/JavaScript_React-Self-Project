@@ -1,1 +1,0 @@
-# JavaScript_React-Self-Project
