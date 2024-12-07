@@ -3,6 +3,8 @@
 ## Overview
 A React-based multi-step form application designed to collect user details, including basic and personal information. The form features a confirmation page to review the entered details and a success page, where the collected data can be exported as an Excel file.
 
+This project was created using a basic knowledge of JavaScript, with a primary focus on React: a powerful open-source JavaScript library used for building user interfaces. The aim of this project was to apply React's core concepts, including its **component-focused architecture** and **JSX syntax**
+
 ## Features
 - **User-Friendly Navigation**: Navigate between form sections with buttons styled using Material-UI.
 - **Form State Management**: Efficient state management using React, allowing seamless interaction between components.
@@ -20,7 +22,11 @@ A React-based multi-step form application designed to collect user details, incl
    - Shows a completion message and allows data export as an Excel file.
 
 ## Technologies Used
-- **React**: For building the user interface and managing state.
+- **React**: For building the user interface and managing state. 
+   This project highlights:
+         - **Component-Focused Architecture**: Dividing the application into reusable and independent components.
+         - **JSX Syntax**: Seamlessly integrating HTML syntax into JavaScript.
+         
 - **Material-UI**: For pre-styled components like buttons, text fields, and app bars.
 - **XLSX Library**: To enable data export to an Excel file.
 
@@ -38,6 +44,6 @@ A React-based multi-step form application designed to collect user details, incl
 
 ## Getting Started
 ### Prerequisites
-- Node.js installed on your system
-- REACT imported
+- Node.js installed on your system.
 - MATERIAL UI library imported
+- REACT library imported
