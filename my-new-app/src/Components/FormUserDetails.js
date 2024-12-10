@@ -1,6 +1,6 @@
 import React from 'react';
 import { AppBar, Button, Box, Typography } from '@mui/material';
-import InputField from './InputField'; // Import the reusable component
+import InputField from './InputField'; 
 
 const FormUserDetails = ({ values, handleChange, nextStep }) => {
   const continueStep = (e) => {
