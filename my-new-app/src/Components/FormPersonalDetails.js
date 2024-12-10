@@ -1,77 +1,61 @@
-import React, { Component } from 'react';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import AppBar from 'material-ui/AppBar';
-import TextField from 'material-ui/TextField';
-import RaisedButton from 'material-ui/RaisedButton';
+import React from 'react';
+import { AppBar, Button, Box, Typography } from '@mui/material';
+import InputField from './InputField'; // Reusable InputField component
 
-export class FormPersonalDetails extends Component {
-  
-    continue = e => {
-        e.preventDefault();
-        this.props.nextStep();
-    };
+const FormPersonalDetails = ({ values, handleChange, nextStep, prevStep }) => {
+  const continueStep = (e) => {
+    e.preventDefault();
+    nextStep();
+  };
 
-    back = e => {
-        e.preventDefault();
-        this.props.prevStep();
+  const backStep = (e) => {
+    e.preventDefault();
+    prevStep();
+  };
 
-    };
+  return (
+    <Box sx={{ padding: 2, maxWidth: 400, margin: 'auto' }}>
+      <AppBar position="static" sx={{ backgroundColor: '#0047AB', padding: 1 }}>
+        <Typography variant="h6" align="center">
+          Enter Personal Details
+        </Typography>
+      </AppBar>
 
-  render() {
-    const { values, handleChange } = this.props;
+      <InputField
+        label="Occupation"
+        value={values.occupation}
+        onChange={(e) => handleChange('occupation')(e)}
+      />
+      <InputField
+        label="City"
+        value={values.city}
+        onChange={(e) => handleChange('city')(e)}
+      />
+      <InputField
+        label="Bio"
+        value={values.bio}
+        onChange={(e) => handleChange('bio')(e)}
+      />
 
-    return (
-      <MuiThemeProvider>
-        <React.Fragment>
-            <AppBar 
-                title="Enter Personal Details" 
-                style={{ backgroundColor: '#0047AB' }}
-            />
-            <TextField
-                hintText="Enter Your Occupation"
-                floatingLabelText="Occupation"
-                onChange={handleChange('occupation')}
-                defaultValue={values.occupation}
-            />
-            <br/>
-            <TextField
-                hintText="Enter Your City"
-                floatingLabelText="City"
-                onChange={handleChange('city')}
-                defaultValue={values.city}
-            />
-            <br/>
-            <TextField
-                hintText="Enter Your Bio"
-                floatingLabelText="Bio"
-                onChange={handleChange('bio')}
-                defaultValue={values.bio}
-            />
-            <br/>
-            <RaisedButton
-                label="Continue"
-                style={styles.button} 
-                backgroundColor="#0047AB"
-                labelColor="#ffffff" 
-                onClick={this.continue}
-            />
-            <RaisedButton
-                label="Back"
-                style={styles.button} 
-                backgroundColor="#7393B3"
-                labelColor="#ffffff" 
-                onClick={this.back}
-            />
-        </React.Fragment>
-      </MuiThemeProvider>
-    )
-  }
-}
+      <Button
+        fullWidth
+        variant="contained"
+        sx={{ backgroundColor: '#0047AB', color: '#fff', marginTop: 2 }}
+        onClick={continueStep}
+      >
+        Continue
+      </Button>
 
-const styles = {
-    button: {
-        margin: 15
-    }
-}
+      <Button
+        fullWidth
+        variant="contained"
+        sx={{ backgroundColor: '#7393B3', color: '#fff', marginTop: 2 }}
+        onClick={backStep}
+      >
+        Back
+      </Button>
+    </Box>
+  );
+};
 
 export default FormPersonalDetails;

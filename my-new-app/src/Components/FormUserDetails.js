@@ -1,62 +1,46 @@
-import React, { Component } from 'react';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import AppBar from 'material-ui/AppBar';
-import TextField from 'material-ui/TextField';
-import RaisedButton from 'material-ui/RaisedButton';
+import React from 'react';
+import { AppBar, Button, Box, Typography } from '@mui/material';
+import InputField from './InputField'; // Import the reusable component
 
-export class FormUserDetails extends Component {
-    continue = e => {
-        e.preventDefault();
-        this.props.nextStep();
+const FormUserDetails = ({ values, handleChange, nextStep }) => {
+  const continueStep = (e) => {
+    e.preventDefault();
+    nextStep();
+  };
 
-    };
-  render() {
-    const { values, handleChange } = this.props;
-    return (
-      <MuiThemeProvider>
-        <React.Fragment>
-            <AppBar 
-                title="Enter User Details" 
-                style={{ backgroundColor: '#0047AB' }}
-            />
-            <TextField
-                hintText="Enter Your First Name"
-                floatingLabelText="First Name"
-                onChange={handleChange('firstName')}
-                defaultValue={values.firstName}
-            />
-            <br/>
-            <TextField
-                hintText="Enter Your Last Name"
-                floatingLabelText="Last Name"
-                onChange={handleChange('lastName')}
-                defaultValue={values.lastName}
-            />
-            <br/>
-            <TextField
-                hintText="Enter Your Email"
-                floatingLabelText="Email"
-                onChange={handleChange('email')}
-                defaultValue={values.email}
-            />
-            <br/>
-            <RaisedButton
-                label="Continue"
-                style={styles.button} 
-                backgroundColor="#0047AB"
-                labelColor="#ffffff"
-                onClick={this.continue}
-            />
-        </React.Fragment>
-      </MuiThemeProvider>
-    )
-  }
-}
+  return (
+    <Box sx={{ padding: 2, maxWidth: 400, margin: 'auto' }}>
+      <AppBar position="static" sx={{ backgroundColor: '#0047AB', padding: 1 }}>
+        <Typography variant="h6" align="center">
+          Enter User Details
+        </Typography>
+      </AppBar>
+      <InputField
+        label="First Name"
+        value={values.firstName}
+        onChange={(e) => handleChange('firstName')(e)}
+      />
+      <InputField
+        label="Last Name"
+        value={values.lastName}
+        onChange={(e) => handleChange('lastName')(e)}
+      />
+      <InputField
+        label="Email"
+        type="email"
+        value={values.email}
+        onChange={(e) => handleChange('email')(e)}
+      />
+      <Button
+        fullWidth
+        variant="contained"
+        sx={{ backgroundColor: '#0047AB', color: '#fff', marginTop: 2 }}
+        onClick={continueStep}
+      >
+        Continue
+      </Button>
+    </Box>
+  );
+};
 
-const styles = {
-    button: {
-        margin: 15
-    }
-}
-
-export default FormUserDetails
+export default FormUserDetails;
