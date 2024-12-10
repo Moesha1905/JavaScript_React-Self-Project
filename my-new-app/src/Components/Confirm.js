@@ -3,28 +3,23 @@ import { AppBar, Button, Box, Grid, Typography } from '@mui/material';
 import * as XLSX from 'xlsx';
 
 export class Confirm extends Component {
-    // Method to handle the confirmation and download action
     continue = (e) => {
         const { values } = this.props;
 
-        // Show a confirmation prompt to the user
         const userWantsDownload = window.confirm(
             "Do you want to download an Excel file with the data you provided?"
         );
 
         if (userWantsDownload) {
-            // If user wants to download, generate the Excel file
             const worksheet = XLSX.utils.json_to_sheet([values]);
             const workbook = XLSX.utils.book_new();
             XLSX.utils.book_append_sheet(workbook, worksheet, "User_Data");
             XLSX.writeFile(workbook, "User_Data.xlsx");
         }
 
-        // Proceed to the next step (Thank you page)
         this.props.nextStep();
     };
 
-    // Method to go back to the previous step
     back = (e) => {
         e.preventDefault();
         this.props.prevStep();
@@ -46,7 +41,6 @@ export class Confirm extends Component {
                     boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.1)',
                 }}
             >
-                {/* AppBar with improved styling */}
                 <AppBar
                     position="static"
                     sx={{
@@ -60,10 +54,8 @@ export class Confirm extends Component {
                     </Typography>
                 </AppBar>
 
-                {/* User Data Section */}
                 <Box sx={{ paddingY: 3 }}>
                     <Grid container spacing={2}>
-                        {/* First Name */}
                         <Grid item xs={4}>
                             <Typography
                                 variant="body1"
@@ -89,7 +81,6 @@ export class Confirm extends Component {
                             <Typography variant="body1">{lastName}</Typography>
                         </Grid>
 
-                        {/* Email */}
                         <Grid item xs={4}>
                             <Typography
                                 variant="body1"
@@ -102,7 +93,6 @@ export class Confirm extends Component {
                             <Typography variant="body1">{email}</Typography>
                         </Grid>
 
-                        {/* Occupation */}
                         <Grid item xs={4}>
                             <Typography
                                 variant="body1"
@@ -115,7 +105,6 @@ export class Confirm extends Component {
                             <Typography variant="body1">{occupation}</Typography>
                         </Grid>
 
-                        {/* City */}
                         <Grid item xs={4}>
                             <Typography
                                 variant="body1"
@@ -128,7 +117,6 @@ export class Confirm extends Component {
                             <Typography variant="body1">{city}</Typography>
                         </Grid>
 
-                        {/* Bio */}
                         <Grid item xs={4}>
                             <Typography
                                 variant="body1"
@@ -143,7 +131,6 @@ export class Confirm extends Component {
                     </Grid>
                 </Box>
 
-                {/* Buttons Section */}
                 <Box sx={{ marginTop: 3 }}>
                     <Button
                         fullWidth
