@@ -1,49 +1,49 @@
-import React, { Component } from 'react';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import AppBar from 'material-ui/AppBar';
-import { RaisedButton } from 'material-ui';
+import React from 'react';
+import { AppBar, Button, Typography } from '@mui/material';
 
-export class Success extends Component {
-    continue = e => {
-        e.preventDefault();
-        // process form //
-        this.props.nextStep();
+const Success = ({ restartForm }) => {
+  return (
+    <div style={{ textAlign: 'center', padding: '20px', maxWidth: '400px', margin: 'auto' }}>
+      {/* AppBar */}
+      <AppBar
+        position="static"
+        sx={{
+          backgroundColor: '#0047AB',
+          padding: 1,
+        }}
+      >
+        <Typography variant="h6" align="center">
+          Success
+        </Typography>
+      </AppBar>
 
-    };
+      {/* Success Message */}
+      <Typography
+        variant="h5"
+        sx={{ color: '#000', fontWeight: 'bold', marginTop: 3, marginBottom: 2 }}
+      >
+        Thank You For Your Submission
+      </Typography>
+      <Typography variant="body1" sx={{ marginBottom: 3 }}>
+        You will receive an email with further instructions.
+      </Typography>
 
-    back = e => {
-        e.preventDefault();
-        this.props.prevStep();
-    };
-
-  render() {
-    const { restartForm } = this.props;
-    return (
-      <MuiThemeProvider>
-        <React.Fragment>
-            <AppBar 
-              title="Success" 
-              style={{ backgroundColor: '#0047AB' }}
-            />
-            <h1>Thank You For Your Submission</h1>
-            <p>You will get an email with further instructions</p>
-            <RaisedButton 
-              label="Redo Form"
-              style={styles.button} 
-              backgroundColor="#0047AB"
-              labelColor="#ffffff"
-              onClick={restartForm}
-            />
-        </React.Fragment>
-      </MuiThemeProvider>
-    );
-  }
-}
-
-const styles = {
-  button: {
-      margin: 15
-  }
-}
+      {/* Redo Form Button */}
+      <Button
+        variant="contained"
+        sx={{
+          backgroundColor: '#0047AB',
+          color: '#ffffff',
+          fontSize: '1rem',
+          padding: '8px 16px', // Adjusted padding for smaller size
+          marginTop: 2,
+        }}
+        onClick={restartForm}
+      >
+        Redo Form
+      </Button>
+    </div>
+  );
+};
 
 export default Success;
