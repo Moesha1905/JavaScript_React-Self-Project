@@ -3,11 +3,9 @@ import { AppBar, Button, Box, Typography } from '@mui/material';
 import axios from 'axios';
 
 export class Confirm extends Component {
-    // Method to handle the confirmation and download action
     continue = async (e) => {
         const { values } = this.props;
 
-        // Show a confirmation prompt to the user
         const userWantsDownload = window.confirm(
             "Do you want to save your data in the Google Sheets?"
         );
@@ -25,11 +23,9 @@ export class Confirm extends Component {
             }
         }
 
-        // Proceed to the next step (Thank you page)
         this.props.nextStep();
     };
 
-    // Method to go back to the previous step
     back = (e) => {
         e.preventDefault();
         this.props.prevStep();
@@ -51,7 +47,6 @@ export class Confirm extends Component {
                     boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.1)',
                 }}
             >
-                {/* AppBar with improved styling */}
                 <AppBar
                     position="static"
                     sx={{
@@ -65,7 +60,6 @@ export class Confirm extends Component {
                     </Typography>
                 </AppBar>
 
-                {/* User Data Section */}
                 <Box sx={{ paddingY: 3 }}>
                     <Box sx={{ marginBottom: 2, display: 'flex', justifyContent: 'space-between' }}>
                         <Typography variant="body1" sx={{ fontWeight: 'bold', textAlign: 'right', width: '40%' }}>
@@ -122,7 +116,6 @@ export class Confirm extends Component {
                     </Box>
                 </Box>
 
-                {/* Buttons Section */}
                 <Box sx={{ marginTop: 3 }}>
                     <Button
                         fullWidth
