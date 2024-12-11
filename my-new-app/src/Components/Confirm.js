@@ -1,25 +1,30 @@
 import React, { Component } from 'react';
-import { AppBar, Button, Box, Grid, Typography } from '@mui/material';
+import { AppBar, Button, Box, Typography } from '@mui/material';
 import * as XLSX from 'xlsx';
 
 export class Confirm extends Component {
+    // Method to handle the confirmation and download action
     continue = (e) => {
         const { values } = this.props;
 
+        // Show a confirmation prompt to the user
         const userWantsDownload = window.confirm(
             "Do you want to download an Excel file with the data you provided?"
         );
 
         if (userWantsDownload) {
+            // If user wants to download, generate the Excel file
             const worksheet = XLSX.utils.json_to_sheet([values]);
             const workbook = XLSX.utils.book_new();
             XLSX.utils.book_append_sheet(workbook, worksheet, "User_Data");
             XLSX.writeFile(workbook, "User_Data.xlsx");
         }
 
+        // Proceed to the next step (Thank you page)
         this.props.nextStep();
     };
 
+    // Method to go back to the previous step
     back = (e) => {
         e.preventDefault();
         this.props.prevStep();
@@ -41,6 +46,7 @@ export class Confirm extends Component {
                     boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.1)',
                 }}
             >
+                {/* AppBar with improved styling */}
                 <AppBar
                     position="static"
                     sx={{
@@ -54,83 +60,64 @@ export class Confirm extends Component {
                     </Typography>
                 </AppBar>
 
+                {/* User Data Section */}
                 <Box sx={{ paddingY: 3 }}>
-                    <Grid container spacing={2}>
-                        <Grid item xs={4}>
-                            <Typography
-                                variant="body1"
-                                sx={{ fontWeight: 'bold', textAlign: 'right' }}
-                            >
-                                First Name:
-                            </Typography>
-                        </Grid>
-                        <Grid item xs={8}>
-                            <Typography variant="body1">{firstName}</Typography>
-                        </Grid>
+                    <Box sx={{ marginBottom: 2, display: 'flex', justifyContent: 'space-between' }}>
+                        <Typography variant="body1" sx={{ fontWeight: 'bold', textAlign: 'right', width: '40%' }}>
+                            First Name:
+                        </Typography>
+                        <Typography variant="body1" sx={{ textAlign: 'left', textwidth: '50%' }}>
+                            {firstName}
+                        </Typography>
+                    </Box>
 
-                        {/* Last Name */}
-                        <Grid item xs={4}>
-                            <Typography
-                                variant="body1"
-                                sx={{ fontWeight: 'bold', textAlign: 'right' }}
-                            >
-                                Last Name:
-                            </Typography>
-                        </Grid>
-                        <Grid item xs={8}>
-                            <Typography variant="body1">{lastName}</Typography>
-                        </Grid>
+                    <Box sx={{ marginBottom: 2, display: 'flex', justifyContent: 'space-between' }}>
+                        <Typography variant="body1" sx={{ fontWeight: 'bold', textAlign: 'right', width: '40%' }}>
+                            Last Name:
+                        </Typography>
+                        <Typography variant="body1" sx={{ textAlign:'left', width: '50%' }}>
+                            {lastName}
+                        </Typography>
+                    </Box>
 
-                        <Grid item xs={4}>
-                            <Typography
-                                variant="body1"
-                                sx={{ fontWeight: 'bold', textAlign: 'right' }}
-                            >
-                                Email:
-                            </Typography>
-                        </Grid>
-                        <Grid item xs={8}>
-                            <Typography variant="body1">{email}</Typography>
-                        </Grid>
+                    <Box sx={{ marginBottom: 2, display: 'flex', justifyContent: 'space-between' }}>
+                        <Typography variant="body1" sx={{ fontWeight: 'bold', textAlign: 'right', width: '40%' }}>
+                            Email:
+                        </Typography>
+                        <Typography variant="body1" sx={{ textAlign:'left', width: '50%' }}>
+                            {email}
+                        </Typography>
+                    </Box>
 
-                        <Grid item xs={4}>
-                            <Typography
-                                variant="body1"
-                                sx={{ fontWeight: 'bold', textAlign: 'right' }}
-                            >
-                                Occupation:
-                            </Typography>
-                        </Grid>
-                        <Grid item xs={8}>
-                            <Typography variant="body1">{occupation}</Typography>
-                        </Grid>
+                    <Box sx={{ marginBottom: 2, display: 'flex', justifyContent: 'space-between' }}>
+                        <Typography variant="body1" sx={{ fontWeight: 'bold', textAlign: 'right', width: '40%' }}>
+                            Occupation:
+                        </Typography>
+                        <Typography variant="body1" sx={{ textAlign:'left', width: '50%' }}>
+                            {occupation}
+                        </Typography>
+                    </Box>
 
-                        <Grid item xs={4}>
-                            <Typography
-                                variant="body1"
-                                sx={{ fontWeight: 'bold', textAlign: 'right' }}
-                            >
-                                City:
-                            </Typography>
-                        </Grid>
-                        <Grid item xs={8}>
-                            <Typography variant="body1">{city}</Typography>
-                        </Grid>
+                    <Box sx={{ marginBottom: 2, display: 'flex', justifyContent: 'space-between' }}>
+                        <Typography variant="body1" sx={{ fontWeight: 'bold', textAlign: 'right', width: '40%' }}>
+                            City:
+                        </Typography>
+                        <Typography variant="body1" sx={{ textAlign:'left', width: '50%' }}>
+                            {city}
+                        </Typography>
+                    </Box>
 
-                        <Grid item xs={4}>
-                            <Typography
-                                variant="body1"
-                                sx={{ fontWeight: 'bold', textAlign: 'right' }}
-                            >
-                                Bio:
-                            </Typography>
-                        </Grid>
-                        <Grid item xs={8}>
-                            <Typography variant="body1">{bio}</Typography>
-                        </Grid>
-                    </Grid>
+                    <Box sx={{ marginBottom: 2, display: 'flex', justifyContent: 'space-between' }}>
+                        <Typography variant="body1" sx={{ fontWeight: 'bold', textAlign: 'right', width: '40%' }}>
+                            Bio:
+                        </Typography>
+                        <Typography variant="body1" sx={{ textAlign:'left', width: '50%' }}>
+                            {bio}
+                        </Typography>
+                    </Box>
                 </Box>
 
+                {/* Buttons Section */}
                 <Box sx={{ marginTop: 3 }}>
                     <Button
                         fullWidth
