@@ -1,23 +1,29 @@
 import React, { Component } from 'react';
 import { AppBar, Button, Box, Typography } from '@mui/material';
 import * as XLSX from 'xlsx';
+import axios from 'axios';
 
 export class Confirm extends Component {
     // Method to handle the confirmation and download action
-    continue = (e) => {
+    continue = async (e) => {
         const { values } = this.props;
 
         // Show a confirmation prompt to the user
         const userWantsDownload = window.confirm(
-            "Do you want to download an Excel file with the data you provided?"
+            "Do you want to save your data in the Google Sheets?"
         );
 
         if (userWantsDownload) {
-            // If user wants to download, generate the Excel file
-            const worksheet = XLSX.utils.json_to_sheet([values]);
-            const workbook = XLSX.utils.book_new();
-            XLSX.utils.book_append_sheet(workbook, worksheet, "User_Data");
-            XLSX.writeFile(workbook, "User_Data.xlsx");
+            try {
+                const sheetDBApiUrl = "https://sheetdb.io/api/v1/73le4pn5dsnr1";
+                await axios.post(sheetDBApiUrl, {
+                    data: values,
+                });
+                alert("Your data has been successfully saved!");
+            } catch (error) {
+                console.error("Error saving data to SheetDB:", error);
+                alert("There was an error saving your data. Please try again.");
+            }
         }
 
         // Proceed to the next step (Thank you page)
