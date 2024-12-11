@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { AppBar, Button, Box, Typography } from '@mui/material';
-import * as XLSX from 'xlsx';
 import axios from 'axios';
 
 export class Confirm extends Component {
