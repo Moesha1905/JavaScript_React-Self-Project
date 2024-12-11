@@ -66,7 +66,7 @@ export class Confirm extends Component {
                         <Typography variant="body1" sx={{ fontWeight: 'bold', textAlign: 'right', width: '40%' }}>
                             First Name:
                         </Typography>
-                        <Typography variant="body1" sx={{ textAlign: 'left', textwidth: '50%' }}>
+                        <Typography variant="body1" sx={{ textAlign:'left', width: '50%' }}>
                             {firstName}
                         </Typography>
                     </Box>
