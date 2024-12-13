@@ -12,14 +12,24 @@ export class UserForm extends Component {
         email: '',
         occupation: '',
         city: '',
-        bio: ''
+        bio: '',
+        errors: {}
     };
 
     // Proceed to next step
     nextStep = () => {
-        this.setState((prevState) => ({
-            step: prevState.step + 1,
-        }));
+        const { step } = this.state;
+        if (step === 1) {
+            if (this.validateUserDetails()) {
+                this.setState({
+                    step: step + 1
+                });
+            }
+        } else {
+            this.setState({
+                step: step + 1
+            });
+        }
     };
 
     // Go back to prev step
@@ -39,18 +49,38 @@ export class UserForm extends Component {
             email: '',
             occupation: '',
             city: '',
-            bio: ''
+            bio: '',
+            errors: {}
         });
     }
 
     // Handle fields change
     handleChange = input => e => {
-        this.setState({[input]: e.target.value});
+        this.setState({[input]: e.target.value, errors: { ...this.state.errors, [input]: ''}
+        });
+    };
+
+    validateUserDetails = () => {
+        const { firstName, lastName, email } = this.state;
+        const errors = {};
+
+        if (!firstName.trim()) errors.firstName = 'First Name is required';
+        if (!lastName.trim()) errors.lastName = 'Last Name is required';
+        if (!email.trim()) {
+            errors.email = 'Email is required';
+        } else if (!email.includes('@')) {
+            errors.email = 'Email must contain a @';
+        }
+
+        this.setState({ errors });
+
+        return Object.keys(errors).length === 0;
+
     };
 
     render() {
         const { step } = this.state;
-        const { firstName, lastName, email, occupation, city, bio } = this.state;
+        const { firstName, lastName, email, occupation, city, bio, errors } = this.state;
         const values = {firstName, lastName, email, occupation, city, bio };
         
         switch(step) {
@@ -60,6 +90,7 @@ export class UserForm extends Component {
                         nextStep={this.nextStep}
                         handleChange={this.handleChange}
                         values={values}
+                        errors={errors}
                     />
                     );
             case 2:
