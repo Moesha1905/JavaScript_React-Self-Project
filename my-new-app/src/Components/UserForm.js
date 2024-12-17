@@ -21,14 +21,14 @@ export class UserForm extends Component {
         const { step } = this.state;
         if (step === 1) {
             if (this.validateUserDetails()) {
-                this.setState({
-                    step: step + 1
-                });
+                this.setState({ step: step + 1});
+            }
+        } else if (step === 2) {
+            if (this.validatePersonalDetails()) {
+                this.setState({ step: step + 1});
             }
         } else {
-            this.setState({
-                step: step + 1
-            });
+            this.setState({ step: step + 1});
         }
     };
 
@@ -78,6 +78,23 @@ export class UserForm extends Component {
 
     };
 
+    validatePersonalDetails = () => {
+        const { occupation, city, bio } = this.state;
+        const errors = {};
+
+        if (!occupation.trim()) errors.occupation = 'Occupation is required';
+        if (!city.trim()) errors.city = 'City is required';
+
+        if (!bio.trim()) {
+            errors.bio = 'Bio must be at least 1 character';
+        } else if (bio.length > 100) {
+            errors.bio = 'Bioo must be at most 100 characters';
+        }
+
+        this.setState({ errors });
+        return Object.keys(errors).length === 0;
+    };
+
     render() {
         const { step } = this.state;
         const { firstName, lastName, email, occupation, city, bio, errors } = this.state;
@@ -100,6 +117,7 @@ export class UserForm extends Component {
                         prevStep={this.prevStep}
                         handleChange={this.handleChange}
                         values={values}
+                        errors={errors}
                     />
                     );
             case 3:

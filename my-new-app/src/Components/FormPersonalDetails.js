@@ -2,7 +2,7 @@ import React from 'react';
 import { AppBar, Button, Box, Typography } from '@mui/material';
 import InputField from './InputField'; 
 
-const FormPersonalDetails = ({ values, handleChange, nextStep, prevStep }) => {
+const FormPersonalDetails = ({ values, handleChange, nextStep, prevStep, errors }) => {
   const continueStep = (e) => {
     e.preventDefault();
     nextStep();
@@ -25,16 +25,22 @@ const FormPersonalDetails = ({ values, handleChange, nextStep, prevStep }) => {
         label="Occupation"
         value={values.occupation}
         onChange={(e) => handleChange('occupation')(e)}
+        error = {!!errors.occupation}
+        helperText={errors.occupation}
       />
       <InputField
         label="City"
         value={values.city}
         onChange={(e) => handleChange('city')(e)}
+        error = {!!errors.city}
+        helperText={errors.city}
       />
       <InputField
         label="Bio"
         value={values.bio}
         onChange={(e) => handleChange('bio')(e)}
+        error = {!!errors.bio}
+        helperText={errors.bio}
       />
 
       <Button
