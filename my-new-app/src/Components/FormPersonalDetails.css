@@ -1,0 +1,31 @@
+.container {
+    padding: 16px;
+    max-width: 400px;
+    margin: auto;
+  }
+  
+  .app-bar {
+    background-color: #0e6cf0 !important; 
+    padding: 8px;
+  }
+  
+  .title {
+    text-align: center;
+  }
+  
+  .button-cont {
+    margin-top: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  
+  .button-continue {
+    background-color: #0e6cf0 !important;
+    color: white !important;
+  }
+  
+  .button-back {
+    background-color: #7393B3 !important;
+    color: white !important;
+  }  
