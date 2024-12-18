@@ -4,6 +4,7 @@ import axios from 'axios';
 import './Confirm.css';
 
 export class Confirm extends Component {
+    // Function to handle the continue action
     continue = async (e) => {
         const { values } = this.props;
 
@@ -27,9 +28,15 @@ export class Confirm extends Component {
         this.props.nextStep();
     };
 
+    // Function to handle the back action
     back = (e) => {
         e.preventDefault();
         this.props.prevStep();
+    };
+
+    // Function to capitalize the first letter of a string
+    capitalizeFirstLetter = (string) => {
+        return string.charAt(0).toUpperCase() + string.slice(1);
     };
 
     render() {
@@ -46,37 +53,51 @@ export class Confirm extends Component {
                 </AppBar>
 
                 <Box sx={{ paddingY: 3 }}>
+                    {/* Display user data with the first letter capitalized */}
                     <Box className="data-box">
                         <Typography variant="body1" className="label">First Name:</Typography>
-                        <Typography variant="body1" className="value">{firstName}</Typography>
+                        <Typography variant="body1" className="value">
+                            {this.capitalizeFirstLetter(firstName)}
+                        </Typography>
                     </Box>
 
                     <Box className="data-box">
                         <Typography variant="body1" className="label">Last Name:</Typography>
-                        <Typography variant="body1" className="value">{lastName}</Typography>
+                        <Typography variant="body1" className="value">
+                            {this.capitalizeFirstLetter(lastName)}
+                        </Typography>
                     </Box>
 
                     <Box className="data-box">
                         <Typography variant="body1" className="label">Email:</Typography>
-                        <Typography variant="body1" className="value">{email}</Typography>
+                        <Typography variant="body1" className="value">
+                            {email}
+                        </Typography>
                     </Box>
 
                     <Box className="data-box">
                         <Typography variant="body1" className="label">Occupation:</Typography>
-                        <Typography variant="body1" className="value">{occupation}</Typography>
+                        <Typography variant="body1" className="value">
+                            {this.capitalizeFirstLetter(occupation)}
+                        </Typography>
                     </Box>
 
                     <Box className="data-box">
                         <Typography variant="body1" className="label">City:</Typography>
-                        <Typography variant="body1" className="value">{city}</Typography>
+                        <Typography variant="body1" className="value">
+                            {this.capitalizeFirstLetter(city)}
+                        </Typography>
                     </Box>
 
                     <Box className="data-box">
                         <Typography variant="body1" className="label">Bio:</Typography>
-                        <Typography variant="body1" className="value">{bio}</Typography>
+                        <Typography variant="body1" className="value">
+                            {this.capitalizeFirstLetter(bio)}
+                        </Typography>
                     </Box>
                 </Box>
 
+                {/* Buttons to navigate */}
                 <Box className="button-cont">
                     <Button
                         fullWidth
