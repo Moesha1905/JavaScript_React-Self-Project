@@ -1,40 +1,26 @@
 import React from 'react';
 import { AppBar, Button, Typography } from '@mui/material';
+import './Success.css';
 
 const Success = ({ restartForm }) => {
   return (
-    <div style={{ textAlign: 'center', padding: '20px', maxWidth: '400px', margin: 'auto' }}>
-      <AppBar
-        position="static"
-        sx={{
-          backgroundColor: '#0047AB',
-          padding: 1,
-        }}
-      >
+    <div className="success-container">
+      <AppBar position="static" className="success-appbar">
         <Typography variant="h6" align="center">
           Success
         </Typography>
       </AppBar>
 
-      <Typography
-        variant="h5"
-        sx={{ color: '#000', fontWeight: 'bold', marginTop: 3, marginBottom: 2 }}
-      >
+      <Typography variant="h5" className="success-title">
         Thank You For Your Submission
       </Typography>
-      <Typography variant="body1" sx={{ marginBottom: 3 }}>
+      <Typography variant="body1" className="success-message">
         You will receive an email with further instructions.
       </Typography>
 
       <Button
         variant="contained"
-        sx={{
-          backgroundColor: '#0047AB',
-          color: '#ffffff',
-          fontSize: '1rem',
-          padding: '8px 16px', 
-          marginTop: 2,
-        }}
+        className="success-button"
         onClick={restartForm}
       >
         Redo Form

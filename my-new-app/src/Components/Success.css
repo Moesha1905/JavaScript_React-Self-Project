@@ -1,0 +1,30 @@
+.success-container {
+    text-align: center;
+    padding: 20px;
+    max-width: 400px;
+    margin: auto;
+  }
+  
+  .success-appbar {
+    background-color: #0e6cf0 !important;
+    padding: 8px;
+  }
+  
+  .success-title {
+    color: #000;
+    font-weight: bold;
+    margin-top: 24px;
+    margin-bottom: 16px;
+  }
+  
+  .success-message {
+    margin-bottom: 24px;
+  }
+  
+  .success-button {
+    background-color: #0e6cf0 !important;
+    color: #ffffff !important;
+    font-size: 1rem;
+    padding: 8px 16px;
+    margin-top: 16px;
+  }  
