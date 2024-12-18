@@ -16,7 +16,7 @@
 .data-box {
     margin-bottom: 16px;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     text-align: center;
 }
 
